@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Utilisateurs</title>
+</head>
+<body>
+
+    <h2>Liste des utilisateurs</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Prénom</th>
+                <th>Nom</th>
+                <th>Âge</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in users %}
+            <tr>
+                <td>{{ user.firstName }}</td>
+                <td>{{ user.lastName }}</td>
+                <td>{{ user.age }}</td>
+                <td>{{ user.email }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+<!-- Début du code à insérer -->
+
+    <h2>Ajouter un nouvel utilisateur</h2>
+    <form method="post" action="{{ url_for('main.add_user') }}">
+        <label for="first_name">Prénom:</label><br>
+        <input type="text" id="first_name" name="first_name"><br>
+        <label for="last_name">Nom:</label><br>
+        <input type="text" id="last_name" name="last_name"><br>
+        <label for="age">Age:</label><br>
+        <input type="number" id="age" name="age"><br>
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email"><br><br>
+        <input type="submit" value="Ajouter">
+    </form>
+
+<!-- Fin du code à insérer -->
+
+</body>
+</html>
